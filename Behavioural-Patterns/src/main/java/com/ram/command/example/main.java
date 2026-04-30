@@ -1,4 +1,4 @@
-package com.ram.comand.example;
+package com.ram.command.example;
 
 interface Command {
     void execute();

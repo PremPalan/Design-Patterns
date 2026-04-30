@@ -1,4 +1,4 @@
-package com.ram.comand.practice.smartHome;
+package com.ram.command.practice.smartHome;
 
 import java.util.ArrayList;
 import java.util.List;

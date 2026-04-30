@@ -1,7 +1,5 @@
-package com.ram.comand.practice.smartHome;
+package com.ram.command.practice.smartHome;
 
-import java.rmi.Remote;
-import java.util.List;
 import java.util.Scanner;
 
 //Commands

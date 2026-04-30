@@ -1,4 +1,4 @@
-package com.ram.comand.practice.smartHome;
+package com.ram.command.practice.smartHome;
 
 public class AC implements Device{
 
