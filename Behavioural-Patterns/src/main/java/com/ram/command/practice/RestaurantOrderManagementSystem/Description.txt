@@ -1,0 +1,138 @@
+Restaurant Order Management System
+
+A customer places different food orders, and the restaurant processes them using commands.
+
+Core idea
+Each order item is a command
+The kitchen is the receiver
+The waiter/POS terminal is the invoker
+A queue stores pending orders
+A cancel option removes or voids an order before preparation
+billing is generated from executed orders only
+Realistic use case
+
+A customer can order:
+
+Burger
+Pizza
+Fries
+Coke
+Pasta
+Coffee
+
+Each item should support actions like:
+
+place order
+prepare order
+serve order
+cancel order
+refund if cancelled before preparation
+What you should implement
+1. Command interface
+
+Each command should have:
+
+execute()
+undo() or cancel()
+2. Receivers
+
+Possible receivers:
+
+Kitchen
+BillingSystem
+InventorySystem
+
+Kitchen handles:
+
+preparing food
+marking order ready
+
+BillingSystem handles:
+
+adding item to bill
+removing item from bill on cancel
+
+InventorySystem handles:
+
+reducing stock
+restoring stock if order is cancelled
+3. Concrete commands
+
+Examples:
+
+OrderBurgerCommand
+OrderPizzaCommand
+OrderFriesCommand
+OrderCokeCommand
+CancelOrderCommand
+GenerateBillCommand
+4. Invoker
+
+A WaiterTerminal or OrderManager should:
+
+accept new commands
+push them into a queue
+execute them one by one
+support cancel before execution
+support undo for last action
+Queue behavior
+
+Orders should not be executed immediately if the kitchen is busy.
+
+Example flow:
+
+Burger ordered
+Pizza ordered
+Fries ordered
+All orders go into a queue
+Kitchen processes them in FIFO order
+
+This makes the system more realistic and lets you practice:
+
+command pattern
+queue-based scheduling
+order history
+Cancel logic
+
+Two kinds of cancel can be added:
+
+Before preparation
+remove command from queue
+no bill generated
+no inventory deduction
+After preparation
+mark as voided
+generate refund
+possibly notify kitchen/staff
+
+This makes the project more advanced.
+
+Billing logic
+
+Billing should:
+
+add price when an order is executed
+show total amount
+support item-wise cancellation
+print final receipt
+
+Example:
+
+Burger = ₹120
+Pizza = ₹250
+Coke = ₹40
+
+Final bill = ₹410
+
+If Coke is cancelled before execution:
+
+final bill = ₹370
+Extra features to make it harder
+
+You can add:
+
+combo meal command
+special request command
+priority orders
+duplicate order detection
+order status tracking: PLACED, IN_QUEUE, PREPARING, READY, SERVED, CANCELLED
