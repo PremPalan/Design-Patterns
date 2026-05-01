@@ -7,6 +7,6 @@ import com.ram.command.practice.RestaurantOrderManagementSystem.RestaurantManage
 public class Kitchen {
     public void notifyKitchen(Order order, RestaurantManagement orderManager) {
         order.setStatus(Status.READY);
-        orderManager.processNext();
+//        orderManager.processNext();
     }
 }

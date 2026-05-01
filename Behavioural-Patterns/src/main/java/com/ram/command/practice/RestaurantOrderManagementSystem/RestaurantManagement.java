@@ -97,7 +97,7 @@ public class RestaurantManagement {
         waiter.placeOrder(burger, 2, 2);
         waiter.placeOrder(coke, 2,2);
 
-        orderManager.processNext();
+        orderManager.processAll();
 
         System.out.println("Total bill : " + billingSystem.getTotalBill(2));
     }
