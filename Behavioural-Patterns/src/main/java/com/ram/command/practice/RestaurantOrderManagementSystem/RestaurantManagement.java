@@ -87,7 +87,7 @@ public class RestaurantManagement {
 
         Waiter waiter = new Waiter(orderManager);
 
-        Item pizza = new Pizza("Margherita");
+        Item pizza = new Pizza("pizza");
         Item pasta = new Pasta("Agleo Oleo");
         Item burger = new Burger("Aloo Tikki");
         Item coke = new Coke("Diet Coke");
@@ -97,8 +97,11 @@ public class RestaurantManagement {
         waiter.placeOrder(burger, 2, 2);
         waiter.placeOrder(coke, 2,2);
 
+        System.out.println("status: " + orderManager.orders.get(1001).getStatus());
+
         orderManager.processAll();
 
-        System.out.println("Total bill : " + billingSystem.getTotalBill(2));
+        System.out.println("Total bill : " + billingSystem.getTotalBill(1));
+        System.out.println("status: " + orderManager.orders.get(1001).getStatus());
     }
 }
