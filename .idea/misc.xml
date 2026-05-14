@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Behavioural-Patterns/pom.xml" />
+        <option value="$PROJECT_DIR$/Structural-Patterns/pom.xml" />
       </list>
     </option>
   </component>
